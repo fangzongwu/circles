@@ -1,22 +1,32 @@
 <h1>用户注册</h1>
-<form>
+
+<%= form_for @user do |f| %>
+  
+  <div>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> : </h2>
+     
+        <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+  
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+    <%= f.text_field :username, class: "form-control", placeholder: "用户名" %>
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <%= f.password_field :password, class: "form-control", placeholder: "密码" %>
   </div>
-  <div class="form-group">
-    <label for="exampleInputFile">File input</label>
-    <input type="file" id="exampleInputFile">
-    <p class="help-block">Example block-level help text here.</p>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> Check me out
-    </label>
-  </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
+  <button type="submit" class="btn btn-default">
+    <%= f.submit "注册" %>
+  </button>
+  <span>
+    <%= link_to "登录", new_sessions_path %>
+  </span>
+
+<% end %>
