@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>我的Circles</title>
+	<%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+  	<header class="top">
+  		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		  	<div class="navbar-header">
+		      <a class="navbar-brand" href="#">Circles</a>
+		    </div>
+		    <div class="collapse navbar-collapse circle-nav" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		      	<li><a href="#">首页</a></li>
+		        <li><a href="#">登录</a></li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
+  	</header>
+	
+	<div class="container circle-body">
+		
+		<% if flash[:notice] %>
+			<div class="alert alert-info">
+				<%= flash[:notice] %>
+			</div>
+		<% end %>
+		
+    	<%= yield %>
+	</div>
+
+  </body>
+</html>
