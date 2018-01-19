@@ -18,10 +18,21 @@
 		    </div>
 		    <div class="collapse navbar-collapse circle-nav" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
-		      	<li><a href="#">首页</a></li>
-		        <li>
-		        	<%= link_to "登录", new_sessions_path %>
-		        </li>
+		      	<li>
+		      		<%= link_to "首页", root_path %>
+		      	</li>
+		      	<li>
+		      		<%= link_to "用户列表", users_path %>
+		      	</li>
+		      	<% if session[:user_id] %>
+					<li>
+						<%= link_to "#{User.find(session[:user_id]).username}, 退出", session_path(User.find(session[:user_id]).id), method: 'delete' %>
+					</li>
+				<% elsif %>
+			        <li>
+			        	<%= link_to "登录", new_session_path %>
+			        </li>
+		      	<% end %>
 		      </ul>
 		    </div>
 		  </div>

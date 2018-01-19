@@ -1,3 +1,13 @@
 <h1>This is circles homepage</h1>
-
-<div class="alert alert-success"> 成功 </div>
+<% if @user %>
+	<div>
+		<span>欢迎您，</span>
+		<span> 
+			<%= @user.username %>
+		</span>
+	</div>
+<% else %>
+	<p>
+		
+	</p>
+<% end %>
