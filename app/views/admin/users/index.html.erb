@@ -1,0 +1,26 @@
+<h1> 后台管理 - 用户管理 </h1>
+<div class="row search-block">
+  <form action="<%= search_admin_users_path %>" method="GET">
+    <span> 用户名： </span>
+    <input type="text" name="username" />
+    <input type="submit" name="搜索" />
+  </form>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <table class="table">
+      <tr>
+        <th> ID </th>
+        <th> 用户名 </th>
+        <th>  </th>
+      </tr>
+      <% @users.each do |user| %>
+        <tr>
+          <td> <%= user.id %> </td>
+          <td> <%= user.username %> </td>
+          <td>  </td>
+        </tr>
+      <% end -%>
+    </table>
+  </div>
+</div>
