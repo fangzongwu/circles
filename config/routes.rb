@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   
 	root 'welcome#index'
 
-	resource :users
-	resource :sessions
+	resources :users
+	resources :sessions
 
 	namespace :admin do 
 
