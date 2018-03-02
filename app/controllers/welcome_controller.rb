@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-  	@user = if session[:user_id] 
+  	@user = if logged_in?
   		User.find session[:user_id]
   	else
   		nil

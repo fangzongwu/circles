@@ -24,9 +24,9 @@
 		      	<li>
 		      		<%= link_to "用户列表", users_path %>
 		      	</li>
-		      	<% if session[:user_id] %>
+		      	<% if logged_in? %>
 					<li>
-						<%= link_to "#{User.find(session[:user_id]).username}, 退出", session_path(User.find(session[:user_id]).id), method: 'delete' %>
+						<%= link_to "#{current_user.username}, 退出", session_path(current_user.id), method: 'delete' %>
 					</li>
 				<% elsif %>
 			        <li>
