@@ -66,3 +66,9 @@ lib/tasks 防止所有的自动化配置；
 	```
 	其实，在rails在views/layouts、stytlesheets、javascripts下边都有一个application文件，这是rails自带的，页面加载时会先加载这些文件；
 	- 重新启动服务（bundle之后一定要重启服务）
+
+
+- 创建User（用户）、登陆和注册、session和cookie部分
+
+- 创建Blog（文章）
+
