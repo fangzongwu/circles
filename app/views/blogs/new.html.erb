@@ -1,0 +1,29 @@
+<h1>创建博客</h1>
+
+<%= form_for @blog, url: blogs_path, method: :post do |f| %>
+  
+  <div>
+    <% if @blog.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@blog.errors.count, "error") %> : </h2>
+     
+        <ul>
+        <% @blog.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.text_field :title, class: "form-control", placeholder: "标题" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_area :content, class: "form-control", placeholder: "内容" %>
+  </div>
+  <button type="submit" class="btn btn-default">
+    <%= f.submit "保存" %>
+  </button>
+
+<% end %>
