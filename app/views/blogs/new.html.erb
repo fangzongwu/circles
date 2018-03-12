@@ -22,6 +22,10 @@
   <div class="form-group">
     <%= f.text_area :content, class: "form-control", placeholder: "内容" %>
   </div>
+  <div class="form-group">
+    <input type="text" name="tags" />
+    <small> 多个标签用逗号","分隔 </small>
+  </div>
   <button type="submit" class="btn btn-default">
     <%= f.submit "保存" %>
   </button>

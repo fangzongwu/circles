@@ -1,25 +1,12 @@
 <h1><%= current_user.username %>的博客</h1>
 
 <div>
-	<%= link_to "创建博客", new_blog_path, { class: "btn btn-primary" } %>
+	<%= link_to "创建博客", new_blog_path, { class: "btn btn-default" } %>
 	<%= link_to "我的博客",  blogs_user_path(current_user), { class: "btn btn-primary" } %>
 </div>
 
 <div class="row">
   <div class="col-sm-12">
-    <table class="table">
-      <tr>
-        <th> ID </th>
-        <th> 标题 </th>
-        <th> 作者 </th>
-      </tr>
-     	<% @blogs.each do |blog| %>
-				<td> <%= blog.id %> </td>
-				<td> <%= link_to blog.title, blog_path(blog) %> </td>
-				<td> <%= blog.user.username %> </td>
-     	<% end -%>
-    </table>
-
-    <%= will_paginate @blogs %>
+    <%= render "blogs/blogs" %>
   </div>
 </div>

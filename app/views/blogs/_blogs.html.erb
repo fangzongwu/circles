@@ -1,0 +1,27 @@
+<table class="table">
+  <tr>
+    <th> ID </th>
+    <th> 标题 </th>
+    <th> 作者 </th>
+  </tr>
+
+ 	<% @blogs.each do |blog| %>
+
+  <tr>
+    <td> <%= blog.id %> </td>
+      <td> 
+        <%= link_to blog.title, blog_path(blog) %> 
+        <% blog.tags.each do |tag| %>
+          <span class="badabe">
+            <%= tag.title %>
+          </span>
+        <% end -%>
+      </td>
+    <td> <%= blog.user.username %> </td>
+  </tr>
+		
+ 	<% end -%>
+  
+</table>
+
+<%= will_paginate @blogs %>
