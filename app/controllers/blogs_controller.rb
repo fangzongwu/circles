@@ -35,8 +35,15 @@ class BlogsController < ApplicationController
 		end
 	end
 
+	def destroy 
+		@blog = Blog.find(params[:id]);
+		@blog.destroy;
+		redirect_to blogs_path
+	end
+
 	#params参数校验
+	private
 	def blog_attrs
-		params.require(:blog).permit(:title, :content)
+		params.require(:blog).permit(:title, :content, :is_public)
 	end
 end
