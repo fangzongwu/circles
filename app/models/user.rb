@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
 	has_many :blogs
 
+	#自定义一个关联关系，用来查找公开的blog；
+	has_many :public_blogs, -> { where(is_public: true) },
+		class_name: "Blog"
+
 end

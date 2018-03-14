@@ -23,6 +23,9 @@
     <td>
       <% if blog.user == current_user %>
         <%= blog.is_public ? "显示" : "不显示" %>
+
+        <%= link_to "编辑", edit_blog_path(blog) %>
+
       <% end -%>
     </td>
     <td>

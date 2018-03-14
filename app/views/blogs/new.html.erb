@@ -1,6 +1,6 @@
-<h1>创建博客</h1>
+<h1><%= @blog.new_record? ? "创建" : "编辑" %>博客</h1>
 
-<%= form_for @blog, url: blogs_path, method: :post do |f| %>
+<%= form_for @blog, url: (@blog.new_record? ? blogs_path : blog_path(@blog) ), method: (@blog.new_record? ? :post : :put) do |f| %>
   
   <div>
     <% if @blog.errors.any? %>
@@ -23,7 +23,7 @@
     <%= f.text_area :content, class: "form-control", placeholder: "内容" %>
   </div>
   <div class="form-group">
-    <input type="text" name="tags" />
+    <input type="text" name="tags" value="<%= @blog.tags.map(&:title).join(",") %>" />
     <small> 多个标签用逗号","分隔 </small>
   </div>
   <div class="form-group">
